@@ -1,3 +1,18 @@
-<!doctype html>
-<title>Galen Weld Photography</title>
-<h1>Look at all my pretty pictures...</h1>
+{% extends "layout.html" %}
+{% block body %}
+	<h2>Gallery of Selected Images</h2>
+  {% for photo in photos %}
+    <div class='gallery'>
+    	<a href="{{ url_for('display_photo', photo_id=photo.id) }}">
+    		<img src={{ photo.url }} alt="">
+    	</a>
+    	<a href="{{ url_for('display_photo', photo_id=photo.id) }}">
+    		{{ photo.title }}
+    	</a>
+    </div>
+  {% else %}
+    <em>No photos yet. Check back soon.</em>
+  {% endfor %}
+{% endblock %}
+
+<a href="{{ url_for('index') }}">Galen Weld Photography</a>

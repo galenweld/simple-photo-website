@@ -1,0 +1,13 @@
+TO DO
+Proper Thumbnail Formatting
+Forward and Backward Clickables on Detail View
+Delete image
+more interesting title
+is plaintext email/phone ok?
+format to fit image in detail view
+
+FANCY
+sample image colors to pick for title
+generate small thumbs
+arrow key nav
+auto-uploader

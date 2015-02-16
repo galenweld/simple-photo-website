@@ -1,3 +1,8 @@
-<!doctype html>
-<title>Galen Weld Photography</title>
-<h1>This is picture {{ photo_id }}!</h1>
+{% extends "layout.html" %}
+{% block body %}
+  <h2>{{ photo.title }}</h2>
+  <div class='photo-pane'>
+  	<img src={{ photo.url }} alt={{ photo.title }}>
+  	<p>{{ photo.caption }}</p>
+  </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+<title>Galen Weld Photography</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% block header %}
+<div class='page'>
+  <div class='name'>
+    <h1>
+      <a href="{{ url_for('index') }}">Galen Weld Photography</a>
+    </h1>
+  </div>
+  <div class='metanav'>
+    <a href="{{ url_for('index') }}">home</a>
+    <a href="{{ url_for('photos') }}">gallery</a>
+    <a href="{{ url_for('about') }}">about</a>
+    {% if not session.logged_in %}
+      <a href="{{ url_for('login') }}">login</a>
+    {% else %}
+      <a href="{{ url_for('logout') }}">logout</a>
+      <a href="{{ url_for('add_photo') }}">upload</a>
+    {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% endblock %}
+
+  {% block body %}{% endblock %}
+
+  {% block footer %}
+  <div class='bottom-info'>
+    &copy; 2015 Galen Weld
+    |  
+    <a href="mailto:galen.weld@gmail.com">galen.weld@gmail.com</a>
+    |
+    (206) 588 5370
+  </div>
+</div>
+{% endblock %}
+</body>
