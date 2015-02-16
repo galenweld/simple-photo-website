@@ -2,7 +2,7 @@ from flask import Flask, render_template, g, abort, request, session, url_for, f
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.heroku import Heroku
 
-# DEBUG = True
+DEBUG = False
 SECRET_KEY = 'a secret'
 USERNAME = 'galen'
 PASSWORD = 'admin'
@@ -11,8 +11,9 @@ WELCOME_IMAGE = 2
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/photos'
-heroku =Heroku(app)
+if DEBUG:
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/photos'
+heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 @app.route('/')
