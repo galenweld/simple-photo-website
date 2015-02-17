@@ -8,6 +8,8 @@ USERNAME = 'galen'
 PASSWORD = 'admin'
 
 WELCOME_IMAGE = 2
+# set the following to None to ignore
+DEV_MESSAGE = 'This website is under development. Thanks for your patience.'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -38,6 +40,7 @@ def display_photo(photo_id):
 
 @app.route('/about')
 def about():
+	if DEV_MESSAGE is not None: flash(DEV_MESSAGE)
 	return render_template('about.html')
 
 @app.route('/add', methods=['GET', 'POST'])
