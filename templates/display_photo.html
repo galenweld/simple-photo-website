@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
-  <h2>{{ photo.title }}</h2>
+  <h2><a href="{{ url_for('photos') }}">{{ photo.title }}</a></h2>
+  <div class='photo-nav'>
+  	<a href="{{ url_for('display_photo', photo_id=prev) }}">&#10094; previous </a>
+  	|
+  	<a href="{{ url_for('display_photo', photo_id=next) }}"> next &#10095;</a>
+  </div>
   <div class='photo-pane'>
   	<img src={{ photo.url }} alt={{ photo.title }}>
   	<p>{{ photo.caption }}</p>

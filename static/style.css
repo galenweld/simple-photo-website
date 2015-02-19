@@ -58,7 +58,38 @@ make-image-fill-div-completely-without-stretching */
 }
 .photo-pane p {
 	padding: 0px;
-	font-size: .8em;
+	font-size: 0.8em;
+}
+
+.about-photo {
+	width: 300px;
+	float: left;
+	background: #333333;
+	margin-right: 10px;
+	margin-bottom: 10px
+}
+.about-photo img {
+	width: 300px;
+}
+.about-photo p {
+	margin: 0px;
+	margin-bottom: 2px;
+	font-size: 0.6em;
+	text-align: center;
+}
+
+.photo-nav {
+	text-align: center;
+	font-size: 0.8em;
+	margin-bottom:2px;
+	word-spacing: 5px
+}
+.photo-nav a:link	{
+	text-decoration: none;
+}
+.photo-nav a:hover{
+	text-decoration: none;
+	color: OrangeRed;
 }
 
 .welcome-image {
@@ -85,6 +116,7 @@ make-image-fill-div-completely-without-stretching */
 	text-decoration: none;
 	color: OrangeRed;
 }
+
 .name a:link {
 	text-decoration: none;
 	color: White;

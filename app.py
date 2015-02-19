@@ -31,12 +31,16 @@ def photos():
 
 @app.route('/photos/<int:photo_id>')
 def display_photo(photo_id):
+	try: next = get_photo(photo_id+1)['id']
+	except: next = 0
+	try: prev = get_photo(photo_id-1)['id']
+	except: prev = 0
 	photo = get_photo(photo_id)
 	if photo is None:
-		flash('Photo not found.')
+		flash('End of Gallery.')
 		return redirect(url_for('photos'))
 	else:
-		return render_template('display_photo.html', photo=photo)
+		return render_template('display_photo.html', photo=photo, next=next, prev=prev)
 
 @app.route('/about')
 def about():
@@ -102,7 +106,7 @@ def get_photo(photo_id):
 	# Returns a dict containing the the fields for photo_id.
 	photo = Photo.query.get(photo_id)
 	if photo is None: return None
-	return dict(title=photo.title, caption=photo.caption, url=photo.url)
+	return dict(title=photo.title, caption=photo.caption, url=photo.url, id=photo.id)
 
 if __name__ == '__main__':
 	app.run

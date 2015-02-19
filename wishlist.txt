@@ -5,6 +5,7 @@ Delete image
 more interesting title
 is plaintext email/phone ok?
 format to fit image in detail view
+longer about page text
 
 FANCY
 sample image colors to pick for title
