@@ -61,6 +61,31 @@ make-image-fill-div-completely-without-stretching */
 	font-size: 0.8em;
 }
 
+.manage-photo {
+	width: 90%;
+	float: left;
+	margin: 10px;
+	font-size: .6em;
+	text-align: left;
+	background: #333333;
+	overflow: hidden;
+}
+.manage-photo p {
+	margin-top: 0px;
+	float: left;
+	text-indent: 1em;
+}
+.manage-photo h2 {
+	clear: both;
+	text-indent: 1em;
+	background: inherit;
+}
+.delete a {
+	text-align: right;
+	color: Red;
+	float: right;
+}
+
 .about-photo {
 	width: 300px;
 	float: left;

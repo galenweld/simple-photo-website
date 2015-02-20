@@ -20,6 +20,7 @@
     {% else %}
       <a href="{{ url_for('logout') }}">logout</a>
       <a href="{{ url_for('add_photo') }}">upload</a>
+      <a href="{{  url_for('manage') }}">manage</a>
     {% endif %}
   </div>
   {% for message in get_flashed_messages() %}

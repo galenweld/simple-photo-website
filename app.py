@@ -83,6 +83,22 @@ def logout():
 	flash('You were logged out succesfully!')
 	return redirect(url_for('index'))
 
+@app.route('/manage')
+def manage():
+	dbOut = Photo.query.all()
+	photos = [dict(id=photo.id, title=photo.title) for photo in dbOut]
+	return render_template('manage.html', photos=photos)
+
+@app.route('/delete/<int:photo_id>')
+def remove_photo(photo_id):
+	if not session.get('logged_in'):
+		abort(401)
+	photo = Photo.query.get(photo_id)
+	db.session.delete(photo)
+	db.session.commit()
+	flash('Photo was removed succesfully.')
+	return redirect(url_for('manage'))
+
 
 class Photo(db.Model):
 	__tablename__ = "photos"

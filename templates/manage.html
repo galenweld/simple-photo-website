@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>Manage or Delete Images</h2>
+  {% for photo in photos %}
+    <div class='manage-photo'>
+    		<h2><a href="{{ url_for('display_photo', photo_id=photo.id) }}">
+          {{ photo.title }}</a></h2>
+        <p>Photo id: {{ photo.id }}</p>
+        <p class='delete'><a href="{{ url_for('remove_photo', photo_id=photo.id) }}">
+            Click here to delete this image. There is no undoing this operation.</a></p>
+    </div>
+  {% else %}
+    <em>No photos yet. Check back soon.</em>
+  {% endfor %}
+  <div class='manage-photo'>
+    <h2><a href="{{ url_for('add_photo') }}">Add photos</a></h2>
+  </div>
+{% endblock %}
